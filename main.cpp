@@ -16,10 +16,10 @@ class MyRequestHandler final : public daneel::RequestHandler
 {
   public:
 
-    daneel::Response handleRequest(const std::vector<std::string>& params)
+    daneel::Response handleRequest(const daneel::RequestParameters& request_parameters)
     {
       daneel::Response response;
-      response.addResults( unique( params ) );
+      response.addResults( unique( request_parameters.getWhatParameters() ) );
       return response;
     }
 };
